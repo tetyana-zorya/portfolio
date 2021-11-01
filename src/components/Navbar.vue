@@ -6,14 +6,14 @@
     <!-- <v-icon>mdi-github</v-icon> -->
   </v-app-bar>
   <v-app-bar :prominent="prominent" elevation="0" color="#F5F5F5">
-      <span class="toolbar-left" :style="toolbarMarginLeft"><router-link :to="{name: 'home'}"  class="toolbar-items">Home</router-link></span>
-      <span class="toolbar-link" :style="toolbarMargin"><router-link :to="{name: 'about'}"  class="toolbar-items">About</router-link></span>
+      <span class="toolbar-left" :style="toolbarMarginLeft"><router-link :to="{name: 'home'}" tag="a" class="toolbar-items">Home</router-link></span>
+      <span class="toolbar-link" :style="toolbarMargin"><router-link :to="{name: 'about'}" tag="a" class="toolbar-items">About</router-link></span>
       <v-spacer></v-spacer>
-        <span class="toolbar-link" :style="toolbarMargin"><router-link v-if="isLoggedIn"  class="toolbar-items">Do stuff</router-link></span>
-        <span class="toolbar-link" :style="toolbarMargin"><router-link v-if="isLoggedIn"  class="toolbar-items">Logout</router-link></span>
+        <span v-if="isLoggedIn" class="toolbar-link" :style="toolbarMargin"><router-link   class="toolbar-items">Do stuff</router-link></span>
+        <span v-if="isLoggedIn" class="toolbar-link" :style="toolbarMargin"><router-link   class="toolbar-items">Logout</router-link></span>
       
-        <span class="toolbar-link" :style="toolbarMargin"><router-link v-if="!isLoggedIn"  :to="{name: 'login'}" class="toolbar-items">Login</router-link></span>
-        <span class="toolbar-right" :style="toolbarMarginRight"><router-link v-if="!isLoggedIn"  :to="{name: 'register'}" class="toolbar-items">Register</router-link></span>
+        <span v-if="!isLoggedIn" class="toolbar-link" :style="toolbarMargin"><router-link  :to="{name: 'login'}" class="toolbar-items">Login</router-link></span>
+        <span v-if="!isLoggedIn" class="toolbar-right" :style="toolbarMarginRight"><router-link v-if="!isLoggedIn"  :to="{name: 'register'}" class="toolbar-items">Register</router-link></span>
   </v-app-bar>
   </div>
 </template>

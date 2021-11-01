@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import vueScrollBehavior from 'vue-scroll-behavior'
+
 
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
@@ -9,6 +11,7 @@ import Room from '../views/Room.vue'
 import ChatHome from '@/views/ChatHome'
 
 Vue.use(VueRouter)
+Vue.use(vueScrollBehavior, {router: router,})
 
 const routes = [
   {
@@ -46,7 +49,20 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes
+  routes,
+  scrollBehavior (to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } 
+      else {
+        if (to.hash) {
+          return {
+            selector: to.hash
+          }
+        }
+      return { x: 0, y: 0 }
+    }
+  }
 })
 
 export default router

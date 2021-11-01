@@ -25,7 +25,12 @@ export default {
   },
 
   SET_USER_INFO(state, info) {
-    console.log(info)
     state.loggedUser.color = info.color
+    console.log(state.loggedUser)
+  },
+
+  SET_USER_ORG(state, color) {
+    state.userOrg = color
+    console.log(state.userOrg)
   }
 }

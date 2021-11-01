@@ -1,8 +1,10 @@
 <template>
   <div>
-    <v-container :style="{backgroundColor: getLoggedUser.color}">
+    <v-container v-if="loaded">
         <v-row justify="center" style="padding-top:5em;">
-          Hi {{this.getLoggedUser.name}}!
+          <!-- <div style="width:400px;">{{getLoggedUser}}</div> -->
+          <br>
+          Hi {{getLoggedUser.name}}! You are in the {{getLoggedUser.color}} group.
         </v-row>
 
         <div v-if="chats.length">
@@ -40,7 +42,7 @@
 
 <script>
 import { getDatabase, ref, child, get, set, onValue } from "firebase/database";
-import { mapGetters, mapMutations} from 'vuex'
+import { mapGetters} from 'vuex'
 
 export default {
   name: 'chats-home',
@@ -48,26 +50,28 @@ export default {
     return {
       chats: [],
       createRoom: false,
-      userColor: '',
       chatName: '',
       userList: [],
       adding: '',
+      myColor: '',
+      loaded: false,
     }
   },
   created() {
-    this.getInfo()
-    this.getRoomList()
+    console.log(this.getLoggedUser);
+    this.getRoomList();
+    if (this.getLoggedUser.color) {
+      this.loaded = true;
+    }
+   
+    
   },
   computed: {
     ...mapGetters([
       'getLoggedUser'
-    ])
+    ]),
   },
   methods: {
-
-    ...mapMutations([
-      'SET_USER_INFO'
-    ]),
 
 
     createChatroom() {
@@ -115,19 +119,22 @@ export default {
         return r;
       },
 
-      getInfo() {
-      const dbRef = ref(getDatabase());
-      get(child(dbRef, `users/${this.getLoggedUser.uid}`)).then((snapshot) => {
-        if (snapshot.exists()) {
-          this.SET_USER_INFO(snapshot.val())
-        } else {
-          console.log("No data available");
-        }
-      }).catch((error) => {
-        console.error(error);
-      });
+    //   getInfo() {
+    //     console.log('in get info')
+    //     console.log(this.getLoggedUser.uid)
+    //   const dbRef = ref(getDatabase());
+    //   get(child(dbRef, `users/${this.getLoggedUser.uid}`)).then((snapshot) => {
+    //     if (snapshot.exists()) {
+    //       console.log(snapshot)
+    //         this.SET_USER_INFO(snapshot.val())
+    //     } else {
+    //       console.log("No data available");
+    //     }
+    //   }).catch((err) => {
+    //     console.log(err)
+    //   })
 
-    },
+    // },
 
     makeUserList(list) {
       console.log(list);
@@ -142,9 +149,11 @@ export default {
     },
 
     getRoomList() {
+      console.log('ingetroomlist')
       const db = getDatabase();
       const checkRooms = ref(db, 'chatrooms');
       onValue(checkRooms, (snapshot) => {
+        console.log(snapshot.val())
         const data = snapshot.val();
         this.updateRooms(data);
         console.log(data)

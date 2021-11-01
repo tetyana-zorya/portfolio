@@ -43,7 +43,8 @@
 
 <script>
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { mapState, mapMutations } from 'vuex'
+import { getDatabase, ref, child, get } from "firebase/database";
+import { mapState, mapMutations, mapActions } from 'vuex'
 
 
 export default {
@@ -61,24 +62,56 @@ export default {
       'loggedUser'
     ]),
 
+    ...mapActions([
+      'setInfo'
+    ]),
     ...mapMutations([
       'SET_USER'
     ]),
 
     login: async function() {
       const auth = getAuth();
+      console.log(auth)
       await signInWithEmailAndPassword(auth, this.email, this.password)
       .then((userCredentials) => {
         this.SET_USER(userCredentials);
-        this.$router.push({name: 'chat-home'})
         })
+      .then(() => {
+        console.log(auth)
+        this.getInfo(auth.currentUser.uid)
+      })
+      //.then(() => {  })  
       .catch((error) => {
-        //alert(error.message);
+        console.log(error)
         console.log(error.code)
         this.translateError(error.code)
         
         console.log(error.code, error.message)
       });
+    },
+
+    getInfo(uid) {
+      console.log('in get info')
+      const dbRef = ref(getDatabase());
+      get(child(dbRef, `users/${uid}`)).then((snapshot) => {
+        if (snapshot.exists()) {
+          console.log(snapshot)
+            this.setMe(snapshot.val())
+            //this.SET_USER_INFO(snapshot.val())
+        } else {
+          console.log("No data available");
+        }
+      }).catch((err) => {
+        console.log(err)
+      })
+
+    },
+
+    setMe: async function(info) {
+      await this.setInfo(info)
+      .then(() => { console.log('setInfo');
+      this.$router.push({name: 'chat-home'})} )
+      .catch((err) => { console.log(err)})
     },
 
     translateError(error) {

@@ -9,7 +9,7 @@
       <span class="toolbar-left" :style="toolbarMarginLeft"><router-link :to="{name: 'home'}" tag="a" class="toolbar-items">Home</router-link></span>
       <span class="toolbar-link" :style="toolbarMargin"><router-link :to="{name: 'about'}" tag="a" class="toolbar-items">About</router-link></span>
       <v-spacer></v-spacer>
-        <span v-if="isLoggedIn" class="toolbar-link" :style="toolbarMargin"><router-link :to="{name: 'home'}" class="toolbar-items">Do stuff</router-link></span>
+        <span v-if="isLoggedIn" class="toolbar-link" :style="toolbarMargin"><router-link :to="{name: 'chat-home'}" class="toolbar-items">Do stuff</router-link></span>
         <span v-if="isLoggedIn" class="toolbar-right" :style="toolbarMarginRight"><a @click="logout()" class="toolbar-items">Logout</a></span>
       
         <span v-if="!isLoggedIn" class="toolbar-link" :style="toolbarMargin"><router-link  :to="{name: 'login'}" class="toolbar-items">Login</router-link></span>

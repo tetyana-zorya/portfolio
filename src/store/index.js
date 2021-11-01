@@ -18,7 +18,8 @@ export default new Vuex.Store({
   })],
 
   state: {
-    loggedUser: {}
+    loggedUser: {},
+    userOrg: ''
   },
 
   getters,

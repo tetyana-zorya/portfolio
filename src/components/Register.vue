@@ -111,13 +111,17 @@ export default {
     write(info) {
       console.log('in write')
       console.log(info)
+      console.log(this.color)
+
       const db = getDatabase();
         set(ref(db, 'users/' + info.user.uid), {
           username: this.name,
           email: info.user.email,
           color: this.color,
           uid: info.user.uid
-        });
+        }).then(() => { console.log('done')}) 
+        .catch((err) => { console.log(err)})
+      console.log('done writing')
     },
 
     translateError(error) {

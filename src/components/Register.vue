@@ -79,30 +79,37 @@ export default {
       .then((userCredentials) => {
         console.log(userCredentials)
         this.addInfo()
+        console.log('here')
         this.write(userCredentials)
+       
         this.$refs.registerForm.reset();
+        console.log('donso')
         this.$emit('registered', true)
         })
       .catch((error) => {
         console.log(error)
         this.translateError(error.code)
-        
         console.log(error.code, error.message)
       });
     },
 
     addInfo: async function() {
+      console.log(this.name)
       const auth = getAuth();
+      console.log(auth)
       updateProfile(auth.currentUser, {
         displayName: this.name
-      }).then((data) => {
-        console.log(data)
+      }).then(() => {
+        console.log('updated');
+        process.exit()
       }).catch((error) => {
+        console.log('else')
         console.log(error)
       });
     },
 
     write(info) {
+      console.log('in write')
       console.log(info)
       const db = getDatabase();
         set(ref(db, 'users/' + info.user.uid), {

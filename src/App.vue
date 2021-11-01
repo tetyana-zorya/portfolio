@@ -4,7 +4,7 @@
       <NavBar />
     </nav>
     <v-main>
-      <router-view :key="$route.path" />
+      <router-view  />
     </v-main>
   </v-app>
 </template>

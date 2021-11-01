@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-row justify="center" style="padding-top:6em;">
-      <Register />
+      <Register @registered="registered" />
     </v-row>
   </div>
 </template>
@@ -12,6 +12,12 @@ export default {
  name: 'register-view', 
  components: {
    Register
+ },
+ methods: {
+   registered(value) {
+     console.log(value)
+     this.$router.push({name: 'login'})
+   }
  }
 }
 

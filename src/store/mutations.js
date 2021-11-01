@@ -15,8 +15,9 @@ export default {
         name: credentials.user.displayName,
       }
     }
-
+    
     state.loggedUser = loggedUser
+    console.log(state.loggedUser)
   },
 
   SET_LOGOUT(state) {

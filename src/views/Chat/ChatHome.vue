@@ -53,7 +53,7 @@ import { getDatabase, ref, child, get, set, onValue } from "firebase/database";
 import { mapGetters} from 'vuex'
 
 export default {
-  name: 'chats-home',
+  name: 'chat-home',
   data() {
     return {
       chats: [],

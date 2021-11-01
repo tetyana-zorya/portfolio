@@ -5,10 +5,10 @@ import vueScrollBehavior from 'vue-scroll-behavior'
 
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
-import LoginView from '../views/LoginView.vue'
-import RegisterView from '../views/RegisterView.vue'
-import Room from '../views/Room.vue'
-import ChatHome from '@/views/ChatHome'
+import LoginView from '../views/Chat/LoginView.vue'
+import RegisterView from '../views/Chat/RegisterView.vue'
+import Room from '../views/Chat/Room.vue'
+import ChatHome from '@/views/Chat/ChatHome'
 
 Vue.use(VueRouter)
 Vue.use(vueScrollBehavior, {router: router,})

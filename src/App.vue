@@ -39,6 +39,7 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: 'Raleway', sans-serif;;
+  //font-family: 'Raleway', sans-serif;;
+  font-family: 'Red Hat Display', sans-serif;
 }
 </style>

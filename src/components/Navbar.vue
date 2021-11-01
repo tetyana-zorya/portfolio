@@ -9,7 +9,7 @@
       <span class="toolbar-left" :style="toolbarMarginLeft"><router-link :to="{name: 'home'}" tag="a" class="toolbar-items">Home</router-link></span>
       <span class="toolbar-link" :style="toolbarMargin"><router-link :to="{name: 'about'}" tag="a" class="toolbar-items">About</router-link></span>
       <v-spacer></v-spacer>
-        <span class="toolbar-link" :style="toolbarMargin"><router-link :to="{name: 'projects'}" class="toolbar-items">Projects</router-link></span>
+        <span class="toolbar-link" :style="toolbarMargin"><router-link :to="{path: '/#projects'}" class="toolbar-items">Projects</router-link></span>
         <span class="toolbar-right" :style="toolbarMarginRight"><a class="toolbar-items">Other</a></span>
       
         <!-- <span v-if="!isLoggedIn" class="toolbar-link" :style="toolbarMargin"><router-link  :to="{name: 'login'}" class="toolbar-items">Login</router-link></span>

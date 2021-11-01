@@ -6,6 +6,6 @@
 
 <script>
 export default {
-  name: 'projects',
+  name: 'chat-project',
 }
 </script>

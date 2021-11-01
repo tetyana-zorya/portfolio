@@ -2,30 +2,46 @@
   <div style="text-align:center">
     <span id="middle-name"> Portfolio.</span>
       <v-container>
-        <div style="text-align:left; position:relative; top:6em; left:16em; z-index:20; width:600px;">
+        <div style="text-align:left; position:relative; top:6em; left:8em; z-index:20; width:600px; padding:1em;">
           <h1 id="hover">Welcome to my page.<br> Click <router-link style="text-decoration:none;" :to="{name: 'about'}"><a style="color:#746458;">here</a></router-link> to learn more about me.</h1>
         </div>
-        <div style="margin-left:35em; position:relative; bottom:5em; z-index:10;">
+        <div style="margin-left:25em; position:relative; bottom:5em; z-index:10;">
           <img id="cover" height="600px" src="@/assets/cover/beige3.png" alt="cover">
         </div>
         
       </v-container>
 
-      <v-container style="width:1260px; height:700px;">
+      <v-container style="width:1760px; height:700px;" id="projects">
         <div style="text-align:left;" data-aos="fade-right">
           <span style="font-size:2em; font-weight:600;">Projects</span>
         </div>
-        <div style="padding-top:8em;">
+        <div style="padding-top:6em;">
           <v-layout>
             <v-row row wrap>
-              <v-flex sm3><div data-aos="fade-up"><a><img width="220px;" src="@/assets/projects/white.jpg" alt="white" class="project-img"></a></div></v-flex>
+              <v-flex sm3 class="chatImage"><div data-aos="fade-up"><a>
+                <router-link :to="{name: 'chat-project'}">
+                  <img @mouseover="projectHover = true" @mouseleave="projectHover = false" width="220px;" src="@/assets/projects/white.jpg" alt="white"  class=" chatImage project-img">
+                  <div id="chatWrite" class="chatImage">
+                    <span style="position:relative; right:.1em;">Realtime</span><br>
+                    <span style="position:relative; bottom:.5em;">Chat App</span>
+                  </div>
+                </router-link></a></div></v-flex>
               <v-flex sm3><div data-aos="fade-up"><a><img width="220px;" src="@/assets/projects/pink.jpg" alt="pink" class="project-img"></a></div></v-flex>
               <v-flex sm3><div data-aos="fade-up"><a><img width="220px;" src="@/assets/projects/yellow.jpg" alt="yellow" class="project-img"></a></div></v-flex>
               <v-flex sm3><div data-aos="fade-up"><a><img width="220px;" src="@/assets/projects/mauve.jpg" alt="mauve" class="project-img"></a></div></v-flex>
             </v-row>
           </v-layout>
         </div>
+        <v-container v-if="projectHover" id="chatInfo">
+          <div>
+            Realtime Web Chat Application Project: 
+            <br>
+            Incorportes Firebase Authentication and Realtime Database. 
+          </div>
+        
       </v-container>
+      </v-container>
+      
   </div>
 </template>
 
@@ -43,6 +59,7 @@
         chats: '',
         createRoom: false,
         chatName: '',
+        projectHover: false
       }
     },
     components: {
@@ -92,6 +109,33 @@
   animation: fadein 3s;
   animation-timing-function: ease-out;
 }
+#chatInfo {
+  display: block;
+  text-align: left; 
+  background-color: #FFFF;
+  position:relative; 
+  bottom:8em;
+  margin-left:5em;
+  height:200px;
+}
+#chatWrite {
+  height:125px;
+  font-weight: 900;
+  font-size:35px;
+  display: none !important;
+  position: absolute;
+  top:1em;
+  left:1.5em;
+  background-color: white;
+  padding:.5em;
+  //border-radius: 25px;
+  color: black;
+  mix-blend-mode: screen;
+}
+.chatImage:hover + #chatWrite {
+  display: block !important;
+}
+
 #middle-name {
   position:relative;
   bottom:2em;

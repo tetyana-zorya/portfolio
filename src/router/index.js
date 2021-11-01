@@ -5,7 +5,7 @@ import vueScrollBehavior from 'vue-scroll-behavior'
 
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
-import Projects from '@/views/Projects'
+import ChatProject from '@/views/ChatProject'
 import LoginView from '../views/Chat/LoginView.vue'
 import RegisterView from '../views/Chat/RegisterView.vue'
 import Room from '../views/Chat/Room.vue'
@@ -26,9 +26,9 @@ const routes = [
     component: About
   },
   {
-    path: '/projects',
-    name: 'projects',
-    component: Projects
+    path: '/chat-project',
+    name: 'chat-project',
+    component: ChatProject
   },
   {
     path: 'chat/login',

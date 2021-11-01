@@ -128,7 +128,7 @@
   left:1.5em;
   background-color: white;
   padding:.5em;
-  //border-radius: 25px;
+  border-radius: 25px;
   color: black;
   mix-blend-mode: screen;
 }
@@ -140,7 +140,9 @@
   position:relative;
   bottom:2em;
   font-size: 3em;
-  color: #3A322C;
+  font-weight:800;
+  //color: #3A322C;
+  color: #ffff;
 }
 #hover {
   font-weight: 500;

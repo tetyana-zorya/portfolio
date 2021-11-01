@@ -1,13 +1,19 @@
 <template>
   <div>
     <v-container v-if="loaded">
-        <v-row justify="center" style="padding-top:5em;">
-          <!-- <div style="width:400px;">{{getLoggedUser}}</div> -->
+      <v-row justify="center">
+      <v-card style="padding:2em; width:500px; margin-top:3em;" :style="{backgroundColor: this.getLoggedUser.color}">
+        <v-row justify="center" style="padding-top:0em;">
+          Hi {{getLoggedUser.name}}! 
           <br>
-          Hi {{getLoggedUser.name}}! You are in the {{getLoggedUser.color}} group.
+          You are in the {{getLoggedUser.color}} group.
         </v-row>
 
-        <div v-if="chats.length">
+        </v-card>
+      </v-row>
+      <v-row justify="center">
+        <v-card style="padding:2em; width:500px; margin-top:3em;">
+          <div v-if="chats.length">
           <v-row justify="center" style="padding-top:5em;" >
               Choose your chatroom: 
           </v-row>
@@ -21,6 +27,8 @@
         <v-row justify="center" style="padding-top:5em;">
           <v-btn @click="createDialog()">Create Chatroom</v-btn>
         </v-row>
+        </v-card>
+      </v-row>
       </v-container>
 
       <v-dialog v-model="createRoom" width="500">
@@ -119,23 +127,6 @@ export default {
         return r;
       },
 
-    //   getInfo() {
-    //     console.log('in get info')
-    //     console.log(this.getLoggedUser.uid)
-    //   const dbRef = ref(getDatabase());
-    //   get(child(dbRef, `users/${this.getLoggedUser.uid}`)).then((snapshot) => {
-    //     if (snapshot.exists()) {
-    //       console.log(snapshot)
-    //         this.SET_USER_INFO(snapshot.val())
-    //     } else {
-    //       console.log("No data available");
-    //     }
-    //   }).catch((err) => {
-    //     console.log(err)
-    //   })
-
-    // },
-
     makeUserList(list) {
       console.log(list);
       let set = [];
@@ -169,7 +160,7 @@ export default {
 
     openRoom(item) {
       console.log(item)
-      this.$router.push({path: '/room' + '?id=' + item.room_id})
+      this.$router.push({path: '/chat/room' + '?id=' + item.room_id})
     }
     
   }

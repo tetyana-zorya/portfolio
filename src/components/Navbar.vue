@@ -1,32 +1,25 @@
 <template>
 <div>
-  <v-app-bar dense elevation="0" color="#F5F5F5">
+  <v-app-bar dense elevation="0" color="#CEC6C0">
     <!-- color="#E5E5E5" -->
     <v-spacer></v-spacer>
     <!-- <v-icon>mdi-github</v-icon> -->
   </v-app-bar>
-  <v-app-bar :prominent="prominent" elevation="0" color="#F5F5F5">
+  <v-app-bar :prominent="prominent" elevation="0" color="#CEC6C0">
       <span class="toolbar-left" :style="toolbarMarginLeft"><router-link :to="{name: 'home'}" tag="a" class="toolbar-items">Home</router-link></span>
       <span class="toolbar-link" :style="toolbarMargin"><router-link :to="{name: 'about'}" tag="a" class="toolbar-items">About</router-link></span>
       <v-spacer></v-spacer>
         <span class="toolbar-link" :style="toolbarMargin"><router-link :to="{path: '/#projects'}" class="toolbar-items">Projects</router-link></span>
         <span class="toolbar-right" :style="toolbarMarginRight"><a class="toolbar-items">Other</a></span>
-      
-        <!-- <span v-if="!isLoggedIn" class="toolbar-link" :style="toolbarMargin"><router-link  :to="{name: 'login'}" class="toolbar-items">Login</router-link></span>
-        <span v-if="!isLoggedIn" class="toolbar-right" :style="toolbarMarginRight"><router-link v-if="!isLoggedIn" :to="{name: 'register'}" class="toolbar-items">Register</router-link></span> -->
   </v-app-bar>
   </div>
 </template>
 
 <script>
-import { mapMutations, mapGetters } from 'vuex';
 
 export default {
   name: 'navbar',
   computed: {
-    ...mapGetters([
-      'isLoggedIn'
-    ]),
 
     prominent() {
       if (this.$route.name == 'home') {
@@ -58,17 +51,7 @@ export default {
 
   },
 
-  methods: {
-    ...mapMutations([
-      'SET_LOGOUT'
-    ]) ,
-
-    logout() {
-      this.SET_LOGOUT();
-      this.$router.push({name: 'home'})
-    },
-
-  }
+  
 }
 </script>
 

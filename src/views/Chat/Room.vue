@@ -1,12 +1,21 @@
 <template>
   <div>
-    
-    <br>
-    {{roomData}}
+    <v-container>
     <br>
     Welcome to the {{roomData.room_name}} chatroom
     <br>
-    members: {{roomData.members}}
+    <br>
+    members:
+    <br>
+    <ul v-for="(item, idx) in members" :key="idx" style="list-style-type: none;">
+      <li>{{item.username}}</li>
+    </ul>
+    <br>
+    Access: {{roomData.access}}
+    <br>
+    Admin: {{roomData.admin}}
+    </v-container>
+    
   </div>
 </template>
 
@@ -18,7 +27,8 @@ export default {
   name: 'chat-room',
   data() {
     return {
-      roomData: ''
+      roomData: '',
+      members: []
     }
   },
   created() {
@@ -30,19 +40,46 @@ export default {
     ])
   },
   methods: {
+
     init() {
-      console.log('ingetroomlist')
+      this.getRoomInfo();
+    },
+
+    getRoomInfo() {
+      //get basic room info
       const db = getDatabase();
       const checkRooms = ref(db, 'chatrooms');
       onValue(checkRooms, (snapshot) => {
         console.log(snapshot.val())
         const data = snapshot.val();
-        //this.updateRooms(data);
         console.log(data)
         console.log(this.$route.query.id)
         this.roomData = data[this.$route.query.id]
+        this.getMemberInfo(data[this.$route.query.id].members);
       });
     },
+
+    getMemberInfo(array) {
+      let members = []
+      //get member info
+      console.log(array)
+      for (const i in array) {
+        if (!isNaN(i)) {
+          console.log(array[i])
+          const db = getDatabase();
+          const checkRooms = ref(db, 'users/'+ array[i]);
+          onValue(checkRooms, (snapshot) => {
+            console.log(snapshot.val())
+            const data = snapshot.val();
+            console.log(data)
+            members.push(data)
+          });
+        }
+      }
+      console.log(members)
+      this.members = members
+    },
+
   },
 
 

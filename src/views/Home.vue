@@ -30,8 +30,6 @@
 </template>
 
 <script>
-  // import Register from '@/components/Register';
-  // import Login from '@/components/Login'
   import { mapGetters } from "vuex";
 
   //import { getDatabase, ref, set } from "firebase/database";

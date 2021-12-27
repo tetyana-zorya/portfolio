@@ -11,7 +11,7 @@
             <span>pronouns: She/Her</span>
             <br>
             I am a Full Stack Developer with a focus on web development. 
-            I use VueJs on the daily to develop, deploy and maintain web-products from end-to-end. 
+             csaI use VueJs on the daily to develop, deploy and maintain web-products from end-to-end. 
             My current role is multi-faceted, sitting between the engineering and product organizations -- demanding both techincal and soft skills everyday.<br><br>
             I studied Economics and History at NYU, focusing on Econometrics for the former and History of Philosophy for the latter. 
             Through these interdisciplinary studies I have developed a passion for cross-functional and unstructured problems, which led me towards falling in love with programming. Not only am I able to sharpen my techincal and communcation skills, I am able to pull in my personal love for clean, aesthtic and functional design. 

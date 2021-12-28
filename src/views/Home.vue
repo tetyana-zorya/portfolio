@@ -11,7 +11,7 @@
         
       </v-container>
 
-      <v-container style="width:1260px; height:700px;">
+      <v-container id="proj" style="width:1260px; height:700px;">
         <div style="text-align:left;" data-aos="fade-right">
           <span style="font-size:2em; font-weight:600;">Projects</span>
         </div>

@@ -12,8 +12,10 @@
         <span class="toolbar-link" :style="toolbarMargin"><router-link v-if="isLoggedIn"  class="toolbar-items">Do stuff</router-link></span>
         <span class="toolbar-link" :style="toolbarMargin"><router-link v-if="isLoggedIn"  class="toolbar-items">Logout</router-link></span>
       
-        <span class="toolbar-link" :style="toolbarMargin"><router-link v-if="!isLoggedIn"  :to="{name: 'login'}" class="toolbar-items">Login</router-link></span>
-        <span class="toolbar-right" :style="toolbarMarginRight"><router-link v-if="!isLoggedIn"  :to="{name: 'register'}" class="toolbar-items">Register</router-link></span>
+       <span class="toolbar-link" :style="toolbarMargin"><a class="toolbar-items" href="/#proj">Projects</a></span>
+       <span class="toolbar-right" :style="toolbarMarginRight"><router-link v-if="!isLoggedIn"  :to="{name: 'register'}" class="toolbar-items">Blog</router-link></span>
+        <!-- <span class="toolbar-link" :style="toolbarMargin"><router-link v-if="!isLoggedIn"  :to="{name: 'login'}" class="toolbar-items">Login</router-link></span>
+        <span class="toolbar-right" :style="toolbarMarginRight"><router-link v-if="!isLoggedIn"  :to="{name: 'register'}" class="toolbar-items">Register</router-link></span> -->
   </v-app-bar>
   </div>
 </template>

@@ -81,6 +81,7 @@ export default {
       });
     },
 
+
     translateError(error) {
       if (error == 'auth/email-already-in-use') {
         this.errorMessage = 'Email Already In Use. Please Proceed to Login.'
@@ -90,6 +91,9 @@ export default {
       }
       else if (error == 'auth/user-not-found') {
         this.errorMessage = 'User not found. Please register for an account.'
+      }
+      else if (error == 'auth/wrong-password') {
+        this.errorMessage = 'incorrect password. Please try again.'
       }
       else {
         this.errorMessage = error

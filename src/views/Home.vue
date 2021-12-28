@@ -1,5 +1,5 @@
 <template>
-  <div style="text-align:center; background-color:#F6F5F3;">
+  <div style="text-align:center; background-color:#D6DCE4;">
     
       <v-container fluid style=" padding-top:12vh;">
 
@@ -15,7 +15,7 @@
         </v-app-bar> -->
         
 
-        <span id="middle-name" style="background-color:#D6DCE4; padding:.5em 1em .5em 1em;"> Tetyana.</span>
+        <span id="middle-name" style="background-color:#F6F5F3; padding:.5em 1em .5em 1em;"> Tetyana.</span>
 
          <!-- <v-container v-if="entryClick" style="height:10vh;" >
         </v-container> -->
@@ -52,7 +52,7 @@
       </v-container>
 
       <v-container fluid style="width:1760px; height:1000px; padding-top:6em;" id="projects" v-if="entryClick">
-        <div style="text-align:left;" data-aos="fade-right">
+        <div style="text-align:left; height:80px;" data-aos="fade-right">
           <ul>
               <a @click="mainView='projects'"><li class="toolbar-items" style="display: inline-block; margin-right:2em; font-size:1.5em; color: #9D8D80;">Projects </li></a>
               <a @click="mainView='about'"><li class="toolbar-items" style="display: inline-block; margin-right:2em; font-size:1.5em; color: #9D8D80;">About </li></a>
@@ -84,7 +84,7 @@
             <span style="font-size:1.8em;">Resume</span><br>
           </v-row>
           <v-row>
-            <span style="font-size:.8em;"><a @click="print()">Download PDF</a></span>
+            <span style="font-size:.8em;"><a class="link-links" @click="print()">Download PDF</a></span>
             <!-- <Download v-show="false" ref="DownloadComp" /> -->
           </v-row>
           <v-row style="padding-top:.5em;">
@@ -158,8 +158,8 @@
         <span v-if="mainView == 'links'">
         <v-container class="section">
           <v-row style="padding-top:1em;" justify="center">
-            <a href="https://github.com/tetyana-zorya?tab=overview" target="_blank">Github</a>
-            <a style="margin-left:1.5em;" href="https://www.linkedin.com/in/tetyana-zorya-157290140/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/tetyana-zorya?tab=overview" target="_blank" class="link-links">Github</a>
+            <a class="link-links" style="margin-left:1.5em;" href="https://www.linkedin.com/in/tetyana-zorya-157290140/"  target="_blank">LinkedIn</a>
           </v-row>
         </v-container>
         </span>
@@ -182,14 +182,15 @@
             </v-row>
           </v-layout>
         </div>
-        <v-container v-if="projectHover" id="chatInfo">
+        <v-container v-if="projectHover" id="chatInfo" style="padding:3em;">
           <div>
-            Realtime Web Chat Application Project: 
+            <b>Realtime Web Chat Application Project:</b>
             <br>
             Incorportes Firebase Authentication and Realtime Database. 
           </div>
-        
-        
+          <div style="float: right; padding-top:3em; color:#EAB948; font-weight:600;">
+            Jan 2022
+          </div>
       </v-container>
       </span>
 
@@ -277,7 +278,7 @@
 #chatInfo {
   display: block;
   text-align: left; 
-  background-color: #D6DCE4;
+  background-color: #F6F5F3;
   position:relative; 
   bottom:8em;
   margin-left:0em;
@@ -307,7 +308,7 @@
   font-size: 3em;
   font-weight:800;
   opacity: 0;
-  color: #ffff;
+  color: #D6DCE4;
 
   animation: opac 3s ease-in-out;
   animation-fill-mode: forwards;
@@ -373,6 +374,17 @@
 #animation-row:hover {
  position:relative; 
  bottom:.3em;
+}
+
+.link-links {
+  color: #748BAA; 
+  text-decoration:none;
+}
+.link-links:hover {
+  position:relative;
+  bottom:.1em;
+  border-bottom: 2px solid #F0CE7F;
+  padding-bottom: 2.5px;
 }
 
 .text-appear {
@@ -441,7 +453,7 @@
   40% {
     height:120px;
     width: 360px; 
-    background-color:#CCD5E1;
+    background-color:#748BAA;
     border: 0px;
     border-radius: 0px;
     box-shadow: 0px 0px 0px #DBDFE6;
@@ -450,7 +462,7 @@
   55% {
     height:120px;
     width: 360px; 
-    background-color:#CCD5E1;
+    background-color:#748BAA;
     border: 0px;
     border-radius: 20px;
     box-shadow: 10px 10px 5px #DBDFE6;
@@ -461,7 +473,7 @@
      border: 0px;
     border-radius: 20px;
     box-shadow: 10px 10px 5px #DBDFE6;
-    background-color:#CCD5E1;
+    // background-color:#CCD5E1;
    }
 
    90% {

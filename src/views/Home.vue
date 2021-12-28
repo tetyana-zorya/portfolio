@@ -280,7 +280,7 @@
 #chatInfo {
   display: block;
   text-align: left; 
-  background-color: #FFFF;
+  background-color: #D6DCE4;
   position:relative; 
   bottom:8em;
   margin-left:0em;
@@ -368,7 +368,7 @@
 .toolbar-items:hover {
   position:relative;
   bottom:.2em;
-  border-bottom: 2px solid #B3BFD1;
+  border-bottom: 2px solid #F0CE7F;
   padding-bottom: 2.5px;
 }
 

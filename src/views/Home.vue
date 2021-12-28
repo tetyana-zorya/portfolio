@@ -5,7 +5,8 @@
       <v-container fluid style=" padding-top:12vh;">
         
 
-        <span id="middle-name" style="background-color:#E6EAF0; padding:.5em 1em .5em 1em;"> Tetyana.</span>
+        <span v-if="!entryClick" id="middle-name" style="background-color:#E6EAF0; padding:.5em 1em .5em 1em;"> Tetyana.</span>
+        <span v-else id="middle-quick" style="background-color:#E6EAF0; padding:.5em 1em .5em 1em;"> Tetyana.</span>
         
         <span id="animation-row" v-if="!entryClick">
         <a @click="entry" style="text-decoration:none;">
@@ -16,7 +17,7 @@
           </div>
         </v-row>
         <v-row>
-          <span class="text-appear">learn more</span>
+          <span class="text-appear">view</span>
         </v-row>
           </a>
         </span>
@@ -33,19 +34,22 @@
       <v-container fluid style="width:1760px; height:1000px; padding-top:6em;" id="projects" v-if="entryClick">
         <div style="text-align:left; height:80px;" data-aos="fade-down">
           <ul>
-              <a @click="mainView='projects'"><li class="toolbar-items" style="display: inline-block; margin-right:2em; font-size:1.5em; color: #9D8D80;">Projects </li></a>
-              <a @click="mainView='about'"><li class="toolbar-items" style="display: inline-block; margin-right:2em; font-size:1.5em; color: #9D8D80;">About </li></a>
-              <a @click="mainView='links'"><li  class="toolbar-items" style="display: inline-block; font-size:1.5em; color: #9D8D80;">Links </li></a>
+              <a @click="mainView='projects'"><li class="toolbar-items" style="display: inline-block; margin-right:2em; font-size:1.5em; color: #748BAA;">Projects </li></a>
+              <a @click="mainView='about'"><li class="toolbar-items" style="display: inline-block; margin-right:2em; font-size:1.5em; color: #748BAA;">About </li></a>
+              <a @click="mainView='links'"><li  class="toolbar-items" style="display: inline-block; font-size:1.5em; color: #748BAA;">Links </li></a>
             </ul>
 
         </div>
 
         <span v-if="mainView=='about'">
           <div class="about">
-    <v-container style="max-width:888px; height:1100px; text-align:left; padding-top:6em;">
+    <v-container style="max-width:888px; height:1100px; text-align:left; padding-top:1em;">
       <v-row>
 
         <v-container class="section info-fade">
+          <v-row justify="center">
+            <img width="140px;" style="border-radius:50%;" src="@/assets/tanya.png" alt="pink">
+          </v-row>
           <v-row justify="left">
             <span style="font-size:1.8em;">Info</span><br>
           </v-row>
@@ -204,6 +208,10 @@
     },
 
     created() {
+      if (this.$route.query.p == 1) {
+        this.entryClick = true;
+      }
+
       if (this.isLoggedIn) {
         console.log(this.getLoggedUser)
       }
@@ -282,7 +290,7 @@
   background-color: white;
   padding:.5em;
   border-radius: 25px;
-  color: #9D8D80;
+  color: #748BAA;
   // mix-blend-mode: screen;
 }
 .chatImage:hover + #chatWrite {
@@ -290,6 +298,13 @@
 }
 
 
+#middle-quick {
+  font-size: 3em;
+  font-weight:800;
+  opacity: 1;
+  color: #748BAA;
+  animation: fadein 1s ease-in;
+}
 
 #middle-name {
   font-size: 3em;
@@ -485,7 +500,7 @@
     border-radius: 20px;
     box-shadow: 0;
     background-color:#9D8D80;
-    margin-left:140px;
+    margin-left:100px;
     margin-top:12em;
    }
 }

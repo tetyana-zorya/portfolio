@@ -1,6 +1,6 @@
 <template>
   <v-app-bar elevation="0">
-    <a href="/" style="text-decoration:none; color:#333;">Home</a>
+    <a href="/?p=1" style="text-decoration:none; color:#333;">Home</a>
     <v-spacer></v-spacer>
     <span> <router-link :to="{name:'chat-home'}"><span style="color: #9D8D80; font-weight:900; font-size:20px; margin-right:2em; text-decoration:none;">ChatApp</span></router-link></span>
     <span><a style="color: #333" @click="logout()">Logout</a></span>

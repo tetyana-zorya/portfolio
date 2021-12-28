@@ -3,9 +3,9 @@
     <nav v-if="this.$route.path.includes('chat')">
       <ChatNav />
     </nav>
-    <nav v-else>
+    <!-- <nav v-else>
       <NavBar />
-    </nav>
+    </nav> -->
     <v-main>
       <router-view  />
     </v-main>
@@ -14,7 +14,7 @@
 
 <script>
 import { mapGetters } from "vuex";
-import NavBar from '@/components/Navbar.vue';
+//import NavBar from '@/components/Navbar.vue';
 import ChatNav from '@/components/ChatNav.vue'
 
 export default {
@@ -25,7 +25,7 @@ export default {
   }),
 
   components: {
-    NavBar,
+    //NavBar,
     ChatNav
   },
 

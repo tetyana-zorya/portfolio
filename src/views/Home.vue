@@ -1,33 +1,11 @@
 <template>
 
-  <div style="text-align:center; background-color:#D6DCE4;">
+  <div style="text-align:center; background-color:#D6DCE4; min-height:180vh;">
     
       <v-container fluid style=" padding-top:12vh;">
-
-  
-        <!-- <v-app-bar elevation="0" class="bar" v-if="entryClick">
-          <v-row justify="center" style="width:60vw; position:relative; top:11em;">
-            <ul >
-              <li style="display: inline-block; margin-right:2em;">About </li>
-              <li style="display: inline-block; margin-right:2em;">Projects </li>
-              <li style="display: inline-block">Links </li>
-            </ul>
-          </v-row>
-        </v-app-bar> -->
         
 
         <span id="middle-name" style="background-color:#E6EAF0; padding:.5em 1em .5em 1em;"> Tetyana.</span>
-
-         <!-- <v-container v-if="entryClick" style="height:10vh;" >
-        </v-container> -->
-        <!-- <v-container style="width:600px;">
-        <div style="text-align:left; position:relative; top:6em; left:8em; z-index:20; width:600px; padding:1em;">
-          <h1 id="hover">Welcome to my page.<br> Click <router-link style="text-decoration:none;" :to="{name: 'about'}"><a style="color:#746458;">here</a></router-link> to learn more about me.</h1>
-        </div>
-        <div style="margin-left:25em; position:relative; bottom:5em; z-index:10;">
-          <img id="cover" height="600px" src="@/assets/cover/beige3.png" alt="cover">
-        </div>
-        </v-container> -->
         
         <span id="animation-row" v-if="!entryClick">
         <a @click="entry" style="text-decoration:none;">
@@ -53,7 +31,7 @@
       </v-container>
 
       <v-container fluid style="width:1760px; height:1000px; padding-top:6em;" id="projects" v-if="entryClick">
-        <div style="text-align:left; height:80px;" data-aos="fade-right">
+        <div style="text-align:left; height:80px;" data-aos="fade-down">
           <ul>
               <a @click="mainView='projects'"><li class="toolbar-items" style="display: inline-block; margin-right:2em; font-size:1.5em; color: #9D8D80;">Projects </li></a>
               <a @click="mainView='about'"><li class="toolbar-items" style="display: inline-block; margin-right:2em; font-size:1.5em; color: #9D8D80;">About </li></a>
@@ -67,7 +45,7 @@
     <v-container style="max-width:888px; height:1100px; text-align:left; padding-top:6em;">
       <v-row>
 
-        <v-container class="section">
+        <v-container class="section info-fade">
           <v-row justify="left">
             <span style="font-size:1.8em;">Info</span><br>
           </v-row>
@@ -81,7 +59,7 @@
           </v-row>
         </v-container>
 
-        <v-container class="section">
+        <v-container class="section info-fade">
           <v-row justify="left">
             <span style="font-size:1.8em;">Resume</span><br>
           </v-row>
@@ -90,7 +68,7 @@
             <!-- <Download v-show="false" ref="DownloadComp" /> -->
           </v-row>
           <v-row style="padding-top:.5em;">
-            <div style="height:350px; overflow: auto; padding:1em;" >
+            <div style="height:500px; overflow: auto; padding:1em;" >
               <br>
               <span><b>Full Stack Developer, PM</b></span><br><span style="color:grey;">Social Standards, </span><span style="color:grey;">Full-time</span><br>
               <span style="color:grey;">Nov 2020 – Present,</span>
@@ -338,6 +316,10 @@
   transform-origin: bottom left;
 }
 
+.info-fade {
+  animation: fadein 2s;
+}
+
 #hover:before {
   content: " ";
   display: block;
@@ -515,7 +497,7 @@
   30% {
     opacity: 0 
   }
-  36% { 
+  40% { 
     opacity: 1;
      };
   51% {

@@ -1,4 +1,5 @@
 <template>
+
   <div style="text-align:center; background-color:#D6DCE4;">
     
       <v-container fluid style=" padding-top:12vh;">
@@ -15,7 +16,7 @@
         </v-app-bar> -->
         
 
-        <span id="middle-name" style="background-color:#F6F5F3; padding:.5em 1em .5em 1em;"> Tetyana.</span>
+        <span id="middle-name" style="background-color:#E6EAF0; padding:.5em 1em .5em 1em;"> Tetyana.</span>
 
          <!-- <v-container v-if="entryClick" style="height:10vh;" >
         </v-container> -->
@@ -58,6 +59,7 @@
               <a @click="mainView='about'"><li class="toolbar-items" style="display: inline-block; margin-right:2em; font-size:1.5em; color: #9D8D80;">About </li></a>
               <a @click="mainView='links'"><li  class="toolbar-items" style="display: inline-block; font-size:1.5em; color: #9D8D80;">Links </li></a>
             </ul>
+
         </div>
 
         <span v-if="mainView=='about'">
@@ -165,15 +167,15 @@
         </span>
 
         <span v-if="mainView == 'projects'">
-        <div style="padding-top:6em;" >
+        <div style="padding-top:2em;" >
           <v-layout>
             <v-row row wrap>
               <v-flex sm3 class="chatImage"><div data-aos="fade-up"><a>
                 <router-link :to="{name: 'chat-project'}">
                   <img @mouseover="projectHover = true" @mouseleave="projectHover = false" width="220px;" src="@/assets/projects/white.png" alt="white"  class="chatImage project-img">
                   <div id="chatWrite" class="chatImage">
-                    <span style="position:relative; right:.1em;">Realtime</span><br>
-                    <span style="position:relative; bottom:.5em;">Chat App</span>
+                    <span style="position:absolute; left:.5em;">Realtime</span>
+                    <span style="position:relative; top:1em;">Chat App</span>
                   </div>
                 </router-link></a></div></v-flex>
               <v-flex sm3><div data-aos="fade-up"><a><img width="220px;" src="@/assets/projects/pink.png" alt="pink" class="project-img"></a></div></v-flex>
@@ -185,8 +187,9 @@
         <v-container v-if="projectHover" id="chatInfo" style="padding:3em;">
           <div>
             <b>Realtime Web Chat Application Project:</b>
+
             <br>
-            Incorportes Firebase Authentication and Realtime Database. 
+            Incorportes Firebase Authentication and Firebase Realtime Database to create a realtime web chat.
           </div>
           <div style="float: right; padding-top:3em; color:#EAB948; font-weight:600;">
             Jan 2022
@@ -289,14 +292,20 @@
   font-weight: 900;
   font-size:30px;
   display: none !important;
+  // position: absolute;
+  // top:1em;
+  // left:28%;
+  width: 70%;
+  text-align: center;
   position: absolute;
   top:1em;
   left:28%;
+
   background-color: white;
   padding:.5em;
   border-radius: 25px;
-  color: black;
-  mix-blend-mode: screen;
+  color: #9D8D80;
+  // mix-blend-mode: screen;
 }
 .chatImage:hover + #chatWrite {
   display: block !important;
@@ -308,7 +317,7 @@
   font-size: 3em;
   font-weight:800;
   opacity: 0;
-  color: #D6DCE4;
+  color: #748BAA;
 
   animation: opac 3s ease-in-out;
   animation-fill-mode: forwards;
@@ -317,7 +326,7 @@
 }
 #hover {
   font-weight: 500;
-  color:3A322C;
+  color:#B9ACA2;
 }
 #hover:before {  
   transform: scaleX(0);
@@ -515,6 +524,30 @@
   100% {
     opacity: 0;
    }
+  }
+
+@media only screen and (min-width: 1800px) {
+  #chatWrite {
+    font-size:30px;
+    width:40%;
+    height: 110px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  #chatWrite {
+    font-size:25px;
+    width:70%;
+    height: 90px;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  #chatWrite {
+    font-size:30px;
+    width:40%;
+    height: 110px;
+  }
 }
 
 

@@ -1,11 +1,10 @@
 <template>
 <div>
   <v-app-bar  elevation="0" color="#F6F5F3">
-    <!-- color="#E5E5E5" -->
     <v-spacer></v-spacer>
-    <!-- <v-icon>mdi-github</v-icon> -->
   </v-app-bar>
   <v-app-bar :prominent="prominent" elevation="0" color="#F6F5F3">
+
       <span class="toolbar-left" :style="toolbarMarginLeft"><router-link :to="{name: 'home'}" tag="a" class="toolbar-items">Home</router-link></span>
       <span class="toolbar-link" :style="toolbarMargin"><router-link :to="{name: 'about'}" tag="a" class="toolbar-items">About</router-link></span>
       <v-spacer></v-spacer>
@@ -64,6 +63,7 @@ export default {
   color: #9D8D80;
   font-size: 17px;
   font-weight: 500;
+
   text-decoration: none !important;
 }
 .toolbar-items:hover {

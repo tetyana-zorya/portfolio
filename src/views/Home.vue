@@ -148,23 +148,20 @@
             </div>
           </v-row>
         </v-container>
+         
+      </v-row>
+    </v-container>
+  </div>
+        </span>
 
+
+        <span v-if="mainView == 'links'">
         <v-container class="section">
-          <v-row justify="left">
-            <span style="font-size:1.8em;">Links</span><br>
-          </v-row>
-          <v-row style="padding-top:1em;">
+          <v-row style="padding-top:1em;" justify="center">
             <a href="https://github.com/tetyana-zorya?tab=overview" target="_blank">Github</a>
             <a style="margin-left:1.5em;" href="https://www.linkedin.com/in/tetyana-zorya-157290140/" target="_blank">LinkedIn</a>
           </v-row>
         </v-container>
-        
-
-        
-        
-      </v-row>
-    </v-container>
-  </div>
         </span>
 
         <span v-if="mainView == 'projects'">
@@ -312,7 +309,7 @@
   opacity: 0;
   color: #ffff;
 
-  animation: opac 4s ease-in-out;
+  animation: opac 3s ease-in-out;
   animation-fill-mode: forwards;
   transition-timing-function: ease-in-out;
 
@@ -360,7 +357,7 @@
   margin-left:.5em;
   opacity: 0;
 
-  animation: name-change 5s ease-in-out;
+  animation: name-change 3s ease-in-out;
   animation-fill-mode: forwards;
   transition-timing-function: ease-in-out;
 }
@@ -387,7 +384,7 @@
   opacity: 0;
   color: #9D8D80;
 
-  animation: opac 4s ease-in-out;
+  animation: opac 3s ease-in-out;
   animation-fill-mode: forwards;
   transition-timing-function: ease-in-out;
 } 
@@ -397,7 +394,7 @@
   bottom:4.36em;
   opacity: 0;
 
-  animation: opac 4s ease-in-out;
+  animation: opac 3s ease-in-out;
   animation-fill-mode: forwards;
   transition-timing-function: ease-in-out;
 }
@@ -408,7 +405,7 @@
   height:0;
   margin-top:6em;
   border-bottom: 3px solid #F6F5F3;
-  animation: draw-line 4s ease-in-out;
+  animation: draw-line 3s ease-in-out;
   animation-fill-mode: forwards;
   transition-timing-function: ease-in-out;
   color:#FFFF;
@@ -435,11 +432,10 @@
     width: 0;
     };
   10% {
-    border-bottom: 3px solid#CCD5E1;
+    border-bottom: 3px solid#748BAA;
   }
   20% { 
     width: 360px; 
-    border-bottom: 3px solid#CCD5E1;
     height:0;
     };
   40% {

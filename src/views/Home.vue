@@ -1,6 +1,18 @@
 <template>
   <div style="text-align:center">
     <span id="middle-name"> Portfolio.</span>
+      <v-container fluid style="background-color:#282630; position:relative; bottom:5em; height:80vh;">
+        <v-container>
+        <div style="text-align:left; position:relative; top:6em; left:8em; z-index:20; width:600px; padding:1em;">
+          <h1 id="hover">Welcome to my page.<br> Click <router-link style="text-decoration:none;" :to="{name: 'about'}"><a style="color:#746458;">here</a></router-link> to learn more about me.</h1>
+        </div>
+        <div style="margin-left:25em; position:relative; bottom:5em; z-index:10;">
+          <!-- <img id="cover" height="600px" src="@/assets/cover/beige3.png" alt="cover"> -->
+        </div>
+        
+      </v-container>
+      </v-container>
+
       <v-container>
         <div style="text-align:left; position:relative; top:6em; left:8em; z-index:20; width:600px; padding:1em;">
           <h1 id="hover">Welcome to my page.<br> Click <router-link style="text-decoration:none;" :to="{name: 'about'}"><a style="color:#746458;">here</a></router-link> to learn more about me.</h1>
@@ -14,6 +26,7 @@
       <v-container style="width:1760px; height:700px;" id="projects">
         <div style="text-align:left;" data-aos="fade-right">
           <span style="font-size:2em; font-weight:600;">Projects</span>
+          <!-- {{this.$vuetify.breakpoint.width}} -->
         </div>
         <div style="padding-top:6em;">
           <v-layout>
@@ -22,8 +35,8 @@
                 <router-link :to="{name: 'chat-project'}">
                   <img @mouseover="projectHover = true" @mouseleave="projectHover = false" width="220px;" src="@/assets/projects/white.jpg" alt="white"  class=" chatImage project-img">
                   <div id="chatWrite" class="chatImage">
-                    <span style="position:relative; right:.1em;">Realtime</span><br>
-                    <span style="position:relative; bottom:.5em;">Chat App</span>
+                    <span style="position:absolute; left:.5em;">Realtime</span>
+                    <span style="position:relative; top:1em;">Chat App</span>
                   </div>
                 </router-link></a></div></v-flex>
               <v-flex sm3><div data-aos="fade-up"><a><img width="220px;" src="@/assets/projects/pink.jpg" alt="pink" class="project-img"></a></div></v-flex>
@@ -34,9 +47,9 @@
         </div>
         <v-container v-if="projectHover" id="chatInfo">
           <div>
-            Realtime Web Chat Application Project: 
+            <b>Realtime Web Chat Application Project</b>
             <br>
-            Incorportes Firebase Authentication and Realtime Database. 
+            Incorportes Firebase Authentication and Firebase Realtime Database to create a realtime web chat.
           </div>
         
       </v-container>
@@ -123,9 +136,15 @@
   font-weight: 900;
   font-size:35px;
   display: none !important;
+  // position: absolute;
+  // top:1em;
+  // left:28%;
+  width: 70%;
+  text-align: center;
   position: absolute;
-  top:1em;
-  left:1.5em;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: white;
   padding:.5em;
   border-radius: 25px;
@@ -146,7 +165,7 @@
 }
 #hover {
   font-weight: 500;
-  color:3A322C;
+  color:#B9ACA2;
 }
 #hover:before {  
   transform: scaleX(0);
@@ -177,6 +196,29 @@
   opacity: .9;
 }
 
+@media only screen and (min-width: 1800px) {
+  #chatWrite {
+    font-size:30px;
+    width:40%;
+    height: 110px;
+  }
+}
+
+@media only screen and (max-width: 1300px) {
+  #chatWrite {
+    font-size:25px;
+    width:70%;
+    height: 90px;
+  }
+}
+
+@media only screen and (max-width: 980px) {
+  #chatWrite {
+    font-size:30px;
+    width:40%;
+    height: 110px;
+  }
+}
 
 
 </style>

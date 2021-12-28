@@ -1,11 +1,11 @@
 <template>
 <div>
-  <v-app-bar dense elevation="0" color="#CEC6C0">
+  <v-app-bar dense elevation="0" color="#282630">
     <!-- color="#E5E5E5" -->
     <v-spacer></v-spacer>
     <!-- <v-icon>mdi-github</v-icon> -->
   </v-app-bar>
-  <v-app-bar :prominent="prominent" elevation="0" color="#CEC6C0">
+  <v-app-bar :prominent="prominent" elevation="0" color="#282630">
       <span class="toolbar-left" :style="toolbarMarginLeft"><router-link :to="{name: 'home'}" tag="a" class="toolbar-items">Home</router-link></span>
       <span class="toolbar-link" :style="toolbarMargin"><router-link :to="{name: 'about'}" tag="a" class="toolbar-items">About</router-link></span>
       <v-spacer></v-spacer>
@@ -61,7 +61,7 @@ export default {
 }
 .toolbar-items {
   z-index: 100000;
-  color: #333;
+  color: #FFFF;
   font-size: 15px;
   text-decoration: none !important;
 }

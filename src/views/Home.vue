@@ -290,7 +290,7 @@
   background-color: white;
   padding:.5em;
   border-radius: 25px;
-  color: #748BAA;
+  color: #EEC76D;
   // mix-blend-mode: screen;
 }
 .chatImage:hover + #chatWrite {
